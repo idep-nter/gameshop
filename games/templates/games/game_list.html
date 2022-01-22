@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} 
+    PC Games
+{% endblock %} 
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "games/game_list.css" %}" />
+{% endblock %}
+
+{% block content %}
+    <div>
+    <ul>
+      {% for game in games %}
+        <li>
+            <a href="{% url "game-detail" game.id %}">
+                <img src="{{ game.image_url }}" alt="{{ game.title }}">
+                <h3>{{ game.title }}</h3>
+                <h4>{{ game.price }} Kč</h4>
+            </a>
+        </li>
+      {% endfor %}
+    </ul>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
+

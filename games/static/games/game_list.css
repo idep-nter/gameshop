@@ -1,0 +1,35 @@
+div {
+  margin: 20px;
+}
+
+ul {
+  list-style-type: none;
+  width: 1000px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4{
+   font-size: 15px;
+}
+
+li img {
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+li {
+  padding: 10px;
+  overflow: auto;
+}
+
+li:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.pagination {
+  text-align: center;
+}

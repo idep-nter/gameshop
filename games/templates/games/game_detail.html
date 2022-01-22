@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block title %} 
+    {{ game.title }}
+{% endblock %} 
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "games/game_detail.css" %}" />
+{% endblock %} 
+
+{% block content %}
+    <div>
+        <h2>{{ game.title }}</h2>
+        <h3>{{ game.category }}</h3>
+        <img src="{{ game.image_url }}" alt="{{ game.title }}">
+        <p>
+            {{ game.description }}
+        </p>
+        <h4>{{ game.price }} Kč</h4>
+    </div>
+{% endblock %}
